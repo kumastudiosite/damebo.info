@@ -1,0 +1,230 @@
+:root {
+  --main-color: #ff6699;
+  --hover-color: #ff3366;
+  --bg-color: #222;
+  --text-color: #fff;
+  --gauge-bg: #444;
+  --gauge-fill: linear-gradient(to right, #f00, #ff0);
+}
+
+.bhb-game-modal * {
+  box-sizing: border-box;
+}
+
+.bhb-game-modal {
+  font-family: sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+.bhb-game-modal h1 {
+  color: var(--main-color);
+  font-size: 6vw;
+  margin: 1em 0 0.5em;
+  text-align: center;
+}
+
+.bhb-game-modal #gauge {
+  width: 90%;
+  max-width: 600px;
+  height: 24px;
+  background: var(--gauge-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1em;
+  font-size: 1rem;
+}
+
+.bhb-game-modal #bar {
+  height: 100%;
+  width: 0%;
+  background: var(--gauge-fill);
+  font-weight: bold;
+}
+
+.bhb-game-modal #character-area {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.bhb-game-modal #character {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.bhb-game-modal #subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 1em 0;
+  min-height: 2rem;
+}
+
+.bhb-game-modal #cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.bhb-game-modal #cards button {
+  width: 90%;
+  max-width: 320px;
+  font-size: 1rem;
+  padding: 12px;
+  background: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.bhb-game-modal #cards button:hover {
+  background: var(--hover-color);
+}
+
+.bhb-game-modal #cards button:active {
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  .bhb-game-modal h1 {
+    font-size: 2.5rem;
+  }
+  .bhb-game-modal #cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .bhb-game-modal #cards button {
+    flex: 1 1 40%;
+    max-width: 240px;
+  }
+  .bhb-game-modal #subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Responsive adjustments for screens ≤800px */
+@media (max-width: 800px) {
+  .bhb-game-modal #character-area {
+    max-width: none;
+  }
+  .bhb-game-modal #cards button {
+    width: 100%;
+    max-width: none;
+  }
+  .bhb-game-modal {
+    padding: 12px;
+  }
+  .bhb-game-modal h1 {
+    font-size: 8vw;
+    margin: 1em 0 0.5em;
+  }
+  .bhb-game-modal #subtitle {
+    font-size: 1.1rem;
+  }
+  .bhb-game-modal #cards {
+    gap: 8px;
+  }
+  .bhb-game-modal #cards button {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+}
+
+/* モーダル外枠や閉じるボタンも必ず独自クラス名で定義 */
+.bhb-modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.bhb-modal-content {
+  background: #111;
+  width: 95vw;
+  max-width: 600px;
+  height: 95vh;
+  border-radius: 10px;
+  overflow: auto;
+  position: relative;
+  box-shadow: 0 0 40px #000;
+  display: flex;
+  flex-direction: column;
+}
+.bhb-modal-close {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+}
+.bhb-section {
+  text-align: center;
+  margin: 3em 0;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em 1em 2em 1em;
+  background: none;
+}
+.bhb-section h2, .bhb-section p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.bhb-section button {
+  margin-top: 1.5em;
+}
+
+.bhb-main-btn {
+  display: inline-block;
+  padding: 0.8em 2em;
+  font-size: 1.15rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0001;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  transition: background 0.15s;
+  letter-spacing: 0.05em;
+  background: #8f5ad5;   /* 鮮やかなパープル */
+  color: #fff;
+}
+.bhb-main-btn:hover,
+.bhb-main-btn:focus {
+  background: #6c34b7;   /* 濃いパープルでアクセント */
+}
+.bhb-character-crop {
+  width: 220px;              /* お好みで調整（例：画像実サイズやデザインに合わせて） */
+  height: 220px;             /* ＝ width の半分、または画像の半分 */
+  margin: 0 auto 1.2em auto; /* 中央寄せ＋下余白 */
+  overflow: hidden;
+  border-radius: 12px;       /* 角丸にしたい場合は追加 */
+  box-shadow: 0 4px 18px #0002;
+}
+.bhb-character-crop img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top;      /* 上寄せでトリミング */
+  /* 画像の縦横比によっては height: auto; の代わりに height: 220px; など調整OK */
+}
+
+

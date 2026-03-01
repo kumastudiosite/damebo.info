@@ -1,0 +1,19 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+# Link to README for AI Crawlers
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 10
+Visit-policy: https://damebo.info/README.txt
+
+Sitemap: https://damebo.info/sitemap.xml
