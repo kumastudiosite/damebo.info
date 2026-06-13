@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang = “ja”>
+<head>
+<meta charset = “utf-8″>
+<title>美人時計_demo</title>
+<style>
+body {
+ width: 100%;
+}
+#wrapper {
+ width: 80%;
+ margin-left: auto;
+ margin-right: auto;
+}
+.image {
+ width: 30%;
+ float: left;
+ padding: 0 1%;
+}
+</style>
+</head>
+<body>
+  <!-- <div style="margin-bottom: 10px;">
+    画像ファイルを指定してください<input  type="file" webkitdirectory directory onChange="fileListDirectory(this.files)" style="margin-left: 10px;">
+  </div> -->
+  <div id="wrapper"></div>
+  <script>
+  // function fileListDirectory(fisles) {
+  //   var fileLen = files.length;
+  //   for(i = 0; i < fileLen; i++){
+  //     var fileName = files[i].name;
+  //     if(fileName.indexOf('.png') != -1){
+  //       var div = document.createElement('div');
+  //       div.className = 'image';
+  //
+  //       // 画像
+  //       var img = document.createElement('img');
+  //       img.src = 'image/' + fileName;
+  //       img.style = 'width: 100%';
+  //
+  //       // ファイル名
+  //       var imageName = document.createElement('input');
+  //       imageName.type = 'text';
+  //       imageName.value = fileName;
+  //       imageName.readOnly = true;
+  //
+  //       div.appendChild(img);
+  //       div.appendChild(imageName);
+  //       document.getElementById('wrapper').appendChild(div);
+  //     }
+  //   }
+  // }
+  for(i = 1; i <= 15; i++) {
+    var div = document.createElement('div');
+    div.className = 'image';
+    var fileName = 'bijin_' + i + '.png'
+    // 画像
+    var img = document.createElement('img');
+    img.src = 'image/' + fileName;
+    img.style = 'width: 100%';
+
+    // ファイル名
+    var imageName = document.createElement('input');
+    imageName.type = 'text';
+    imageName.value = fileName;
+    imageName.readOnly = true;
+
+    div.appendChild(img);
+    div.appendChild(imageName);
+    document.getElementById('wrapper').appendChild(div);
+  }
+  </script>
+</body>
+</html>

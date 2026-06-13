@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset ="utf-8">
+<title>美人時計_demo</title>
+<style>
+body {
+  width: 100%;
+}
+</style>
+</head>
+<body>
+
+  <div style="border-bottom: solid 2px #000; padding-bottom: 10px;">
+    <a href="imageList.html" target="_blank">画像リスト</a><br>
+    ファイル名を1行1ファイルで入力してください。<br>
+    <textarea rows="20" cols="100" id="filePathList">bijin_1.png
+bijin_1.png
+bijin_1.png
+bijin_6.png
+bijin_8.png
+bijin_10.png
+bijin_13.png
+bijin_13.png
+bijin_13.png
+bijin_10.png
+bijin_7.png
+bijin_4.png
+bijin_1.png
+bijin_1.png
+bijin_1.png</textarea><br>
+    切り替え速度(ms):<input type="text" value="1000" id="speedText">
+    <input type="button" value="セット" id="setButton">
+  </div>
+
+  <div style="margin-top: 30px;">
+    <div style="margin: 0 0 20px 20px;">
+      <input type="button" value="スタート" id="startSlide">
+      <input type="button" value="ストップ" id="stopSlide"><br>
+    </div>
+    <img src="image/bijin_1.png" id="slideFile">
+  </div>
+
+<script type="text/javascript" src="jquery-3.3.1min.js"></script>
+<script>
+var imageList = new Array();
+var task;
+var start = 0;
+var speed = 1000;
+// ファイルをセットする
+$('#setButton').click(function() {
+  start = 0;
+  var list = $('#filePathList').val().split(/\n/);
+  var speedText = $('#speedText').val();
+    for(i in list) {
+      imageList[i] = "image/" + list[i];
+    }
+    if (imageList[start].indexOf('.png') != -1) {
+      $('#slideFile').attr('src', imageList[start]);
+    }
+    if (!isNaN(speedText)) {
+      speed = speedText;
+    }
+});
+
+// コマ送りスタート
+$('#startSlide').click(function(){
+  task = setInterval(changeImage, speed);
+});
+
+//コマ送りストップ
+$('#stopSlide').click(function(){
+  if(task){
+    clearInterval(task);
+  }
+});
+
+// 画像変更
+function changeImage() {
+    $("#slideFile").attr("src", imageList[start]);
+    start++;
+    if (start >= imageList.length) {
+        start = 0;
+    }
+};
+</script>
+</body>
+</html>
