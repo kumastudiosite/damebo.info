@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrowstream</title>
+  <link rel="stylesheet" href="style.css?v=1.0.0">
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>Arrowstream</h1>
+      <div id="mode-switch">
+        <label><input type="radio" name="mode" value="play" checked> Play</label>
+        <label><input type="radio" name="mode" value="dev"> Dev Tool</label>
+      </div>
+    </header>
+
+    <main>
+      <!-- Play UI -->
+      <section id="play-ui" class="view active">
+        <div class="status-bar">
+          <span id="cross-events-disp">Cross Events: 0 / 3</span>
+          <span id="game-status"></span>
+          <button id="btn-next-level" style="display: none;">Next Level</button>
+          <button id="btn-retry-level" style="display: none;">Retry Level</button>
+        </div>
+        <div class="canvas-container">
+          <canvas id="game-canvas"></canvas>
+        </div>
+      </section>
+
+      <!-- Dev UI -->
+      <section id="dev-ui" class="view">
+        <div class="dev-controls">
+          <div class="control-group">
+            <label>W: <input type="number" id="dev-w" value="10" min="4"></label>
+            <label>H: <input type="number" id="dev-h" value="12" min="4"></label>
+            <label>Arrows: <input type="number" id="dev-arrows" value="6" min="1"></label>
+          </div>
+
+          <div class="control-group">
+            <label>Seed: <input type="text" id="dev-seed" placeholder="random"></label>
+            <label>Gen N: <input type="number" id="dev-n" value="3" min="1"></label>
+            <label><input type="checkbox" id="dev-solvable" checked> Solvable Only</label>
+          </div>
+          <div class="control-group buttons">
+            <button id="btn-generate">Generate</button>
+            <button id="btn-playtest" disabled>Playtest Selected</button>
+            <button id="btn-download" disabled>Download JSON</button>
+            <button id="btn-download-log">Download Log</button>
+          </div>
+          <div id="dev-status">Ready</div>
+
+          <div id="dev-list" class="level-list">
+            <!-- List goes here -->
+          </div>
+        </div>
+        <div class="canvas-container">
+          <canvas id="dev-canvas"></canvas>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="main.js?v=1.0.0"></script>
+</body>
+
+</html>
